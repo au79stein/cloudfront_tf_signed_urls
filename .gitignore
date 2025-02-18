@@ -1,5 +1,7 @@
 # Created by https://www.toptal.com/developers/gitignore/api/vim,emacs,python,go,angular,linux,commonlisp,ruby,jekyll,java,helm,database,macos,synology,terraform,terragrunt,perl,packer,chefcookbook
 # Edit at https://www.toptal.com/developers/gitignore?templates=vim,emacs,python,go,angular,linux,commonlisp,ruby,jekyll,java,helm,database,macos,synology,terraform,terragrunt,perl,packer,chefcookbook
+# just for this repo
+notes*.*
 ### My Secrets ###
 .secrets
 .secrets/
