@@ -3,7 +3,8 @@ provider "aws" {
 }
 
 resource "aws_s3_bucket" "private_bucket" {
-  bucket = "my-private-bucket-${random_id.bucket_id.hex}"
+  #bucket = "my-private-bucket-${random_id.bucket_id.hex}"
+  bucket = "cloudnost-cf-01"
 }
 
 resource "random_id" "bucket_id" {
@@ -17,7 +18,8 @@ resource "aws_cloudfront_origin_access_identity" "origin_identity" {
 resource "aws_cloudfront_distribution" "private_distribution" {
   origin {
     domain_name = aws_s3_bucket.private_bucket.bucket_regional_domain_name
-    origin_id   = "S3-my-private-bucket"
+    #origin_id   = "S3-my-private-bucket"
+    origin_id   = "S3-cloudnost-cf"
     s3_origin_config {
       origin_access_identity = aws_cloudfront_origin_access_identity.origin_identity.id
     }
@@ -35,7 +37,8 @@ resource "aws_cloudfront_distribution" "private_distribution" {
       "GET",
       "HEAD",
     ]
-    target_origin_id = "S3-my-private-bucket"
+    #target_origin_id = "S3-my-private-bucket"
+    target_origin_id = "S3-cloudnost-cf"
     viewer_protocol_policy = "redirect-to-https"
   }
 
